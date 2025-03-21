@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "@/styles/index.css";
+import { Poppins } from 'next/font/google'
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: "SVG Badge Generator",
@@ -13,7 +20,7 @@ type TRootLayoutProps = {
 export default function RootLayout({ children }: TRootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`antialiased`}      >
+      <body className={`${poppins.className} antialiased`} >
         {children}
       </body>
     </html>
