@@ -1,6 +1,10 @@
 "use client"
+
 import { useSearchParams } from 'next/navigation'
 import { useState, useEffect } from "react"
+
+import { CustomSVG } from '@/components/index'
+
 export default function GeneratedPage() {
     const searchParams = useSearchParams()
 
@@ -11,6 +15,7 @@ export default function GeneratedPage() {
         textColor: 'ffffff',
         iconColor: 'ffffff'
     })
+
     useEffect(() => {
         const text = searchParams.get('text') || ''
         const svgName = searchParams.get('svgName') || ''
