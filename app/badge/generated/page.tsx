@@ -6,6 +6,14 @@ import { useState, useEffect, Suspense } from "react"
 import { CustomSVG } from '@/components/index'
 
 export default function GeneratedPage() {
+    return (
+        <Suspense>
+            <PageContent />
+        </Suspense>
+    )
+}
+
+function PageContent() {
     const searchParams = useSearchParams()
 
     const [params, setParams] = useState<Record<string, string>>({
@@ -28,12 +36,10 @@ export default function GeneratedPage() {
 
     return (
         <main>
-            <Suspense>
-                <div style={{ backgroundColor: `#${params.backgroundColor}` }} className="w-[126.5px] h-[28px] flex items-center pl-2">
-                    {params.svgName && <CustomSVG svgName={params.svgName} backgroundColor={params.backgroundColor} iconColor={params.iconColor} />}
-                    {params.text && <label style={{ color: `#${params.textColor}` }} className="ml-3 uppercase font-bold text-xs tracking-widest">{params.text}</label>}
-                </div>
-            </Suspense>
+            <div style={{ backgroundColor: `#${params.backgroundColor}` }} className="w-[126.5px] h-[28px] flex items-center pl-2">
+                {params.svgName && <CustomSVG svgName={params.svgName} backgroundColor={params.backgroundColor} iconColor={params.iconColor} />}
+                {params.text && <label style={{ color: `#${params.textColor}` }} className="ml-3 uppercase font-bold text-xs tracking-widest">{params.text}</label>}
+            </div>
         </main>
     );
 }
