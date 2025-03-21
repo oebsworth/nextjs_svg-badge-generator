@@ -13,4 +13,8 @@ export default function CustomSVG({ svgName, backgroundColor, iconColor }: Custo
             </svg>
         `
     }
+
+    return (
+        <div dangerouslySetInnerHTML={{ __html: SVG_DATA[svgName] }} ></div>
+    )
 }
